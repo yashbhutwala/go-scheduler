@@ -1,6 +1,9 @@
 # github.com/davecgh/go-spew v1.1.1
 ## explicit
 github.com/davecgh/go-spew/spew
+# github.com/oklog/run v1.1.0
+## explicit
+github.com/oklog/run
 # github.com/pmezard/go-difflib v1.0.0
 github.com/pmezard/go-difflib/difflib
 # github.com/stretchr/testify v1.6.1
@@ -13,7 +16,6 @@ github.com/tmc/dot
 github.com/yashbhutwala/go-directed-acyclic-graph
 # golang.org/x/sync v0.0.0-20200625203802-6e8e738ad208
 ## explicit
-golang.org/x/sync/errgroup
 # gopkg.in/yaml.v3 v3.0.0-20200615113413-eeeca48fe776
 ## explicit
 gopkg.in/yaml.v3

@@ -3,7 +3,7 @@ package go_scheduler
 import (
 	"context"
 
-	"golang.org/x/sync/errgroup"
+	"github.com/oklog/run"
 )
 
 // TaskFunc describes the signature of a task function.
@@ -56,17 +56,19 @@ func newTaskRunner() *taskRunner {
 }
 
 func (r *taskRunner) Run(ctx context.Context, tasks []*Task) error {
-	g, ctx := errgroup.WithContext(ctx)
+	var g run.Group
+	ctx, cancel := context.WithCancel(ctx)
 
 	for i := range tasks {
 		task := tasks[i]
-
-		g.Go(func() error {
+		g.Add(func() error {
 			return task.Run(ctx)
+		}, func(error) {
+			cancel()
 		})
 	}
 
-	return g.Wait()
+	return g.Run()
 }
 
 // Options holds the scheduler's configuration.
