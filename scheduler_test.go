@@ -3,6 +3,7 @@ package go_scheduler
 import (
 	"context"
 	"errors"
+	"fmt"
 	"runtime"
 	"sync"
 	"testing"
@@ -12,6 +13,7 @@ import (
 )
 
 func testSchedulerTask(ctx context.Context) error {
+	fmt.Println("TODO: default scheduler task returns nil")
 	return nil
 }
 
